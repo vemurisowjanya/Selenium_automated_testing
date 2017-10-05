@@ -11,6 +11,7 @@ class GithubTest(unittest.TestCase):
 
 
     def test_github_signup(self):
+        """Return True if Join GitHub is found on the Sign up page of Github."""
         driver = self.driver
         driver.get(self.base_url)
         search_box = driver.find_element_by_link_text("Sign up")
@@ -20,6 +21,7 @@ class GithubTest(unittest.TestCase):
 
 
     def test_github_fork_and_star_repo_annonymous_user_redirects_to_login(self):
+        """Return True if anonymous user is redirected to login page when clicked on fork/star."""
         login_url = "https://github.com/login?return_to=%2Fsysters%2Fmailman3"
         driver = self.driver
         driver.get("{0}/systers/mailman3".format(self.base_url))
@@ -36,6 +38,7 @@ class GithubTest(unittest.TestCase):
 
 
     def test_github_explore(self):
+        """Return True if the clicking on explore, trending lands on the right URL."""
         python_trending_url = "https://github.com/trending/python"
         driver = self.driver
         driver.get(self.base_url)
@@ -52,6 +55,7 @@ class GithubTest(unittest.TestCase):
 
 
     def test_github_systers_automated_testing(self):
+        """Return True if the automated testing README URL is achieved after appropriate clicks."""
         automated_testing_url = self.base_url + "/systers/automated-testing"
         readme_url = automated_testing_url + "/blob/master/README.md"
         driver = self.driver
@@ -66,6 +70,7 @@ class GithubTest(unittest.TestCase):
 
 
     def test_github_repo_search_with_invalid_string(self):
+        """Return True if the invalid search gives the correct suggestions."""
         driver = self.driver
         driver.get(self.base_url)
         search_box = driver.find_element_by_name("q")
